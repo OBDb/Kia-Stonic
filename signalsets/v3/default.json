@@ -98,11 +98,11 @@
     {"id": "STONIC_ENGINE_RPM",                            "path": "Movement", "fmt": {"bix": 56,  "len": 16, "blsb": true,  "max": 16383.75,                                   "div": 4,                     "unit": "rpm"        },                                                          "name": "Engine RPM",                            "suggestedMetric": "engineSpeed"},
     {"id": "STONIC_COMMANDED_ENGINE_IDLE_RPM",             "path": "Movement", "fmt": {"bix": 72,  "len": 8,  "max": 2550,                    "mul": 10,                                    "unit": "rpm"     },                   "name": "Commanded engine idle RPM"},
     {"id": "STONIC_MAP_SENSOR_VOLTAGE",                    "path": "Battery",  "fmt": {"bix": 112, "len": 16, "blsb": true,  "max": 319.9951,              "mul": 0.0048828125,                               "unit": "volts"      },                                                          "name": "Manifold pressure sensor voltage"},
-    {"id": "STONIC_INTAKE_MANIFOLD_ABSOLUTE_PRESSURE",     "path": "ECU",      "fmt": {"bix": 128, "len": 16, "blsb": true,  "max": 255.996,                                    "div": 256,                   "unit": "kilopascal" },                                                          "name": "Intake manifold absolute pressure"},
+    {"id": "STONIC_INTAKE_MANIFOLD_ABSOLUTE_PRESSURE",     "path": "ECU",      "fmt": {"bix": 128, "len": 16, "blsb": true,  "max": 255.996,                                    "div": 256,                   "unit": "kilopascal" },                                                          "name": "Intake manifold absolute pressure",     "suggestedMetric": "absoluteBoostPressure"},
     {"id": "STONIC_COOLANT_T_SENSOR_VOLTAGE",              "path": "Battery",  "fmt": {"bix": 184, "len": 16, "blsb": true,  "max": 319.9951,              "mul": 0.0048828125,                               "unit": "volts"      },                                                          "name": "Coolant temperature sensor voltage"},
     {"id": "STONIC_ENGINE_COOLANT_T",                      "path": "Engine",   "fmt": {"bix": 200, "len": 8,  "max": 143.25, "min": -48,      "mul": 0.75,                      "add": -48, "unit": "celsius" },                   "name": "Engine coolant temperature",                       "suggestedMetric": "engineCoolantTemperature"},
     {"id": "STONIC_IAT_SENSOR_VOLTAGE",                    "path": "Battery",  "fmt": {"bix": 248, "len": 16, "blsb": true,  "max": 319.9951,              "mul": 0.0048828125,                               "unit": "volts"      },                                                          "name": "Intake air temperature sensor voltage"},
-    {"id": "STONIC_INTAKE_AIR_T",                          "path": "Engine",   "fmt": {"bix": 264, "len": 8,  "max": 143.25, "min": -48,      "mul": 0.75,                      "add": -48, "unit": "celsius" },                   "name": "Intake air temperature"},
+    {"id": "STONIC_INTAKE_AIR_T",                          "path": "Engine",   "fmt": {"bix": 264, "len": 8,  "max": 143.25, "min": -48,      "mul": 0.75,                      "add": -48, "unit": "celsius" },                   "name": "Intake air temperature",                           "suggestedMetric": "intakeAirTemperature"},
     {"id": "STONIC_ENGINE_OIL_T",                          "path": "Engine",   "fmt": {"bix": 272, "len": 8,  "max": 143.25, "min": -48,      "mul": 0.75,                      "add": -48, "unit": "celsius" },                   "name": "Engine oil temperature",                           "suggestedMetric": "engineOilTemperature"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "02"}, "freq": 1,
@@ -200,7 +200,7 @@
     {"id": "STONIC_TIMING_ADVANCE_2",    "path": "Engine", "fmt": {"bix": 40,  "len": 8, "max": 95.25, "min": -96, "mul": 0.75,           "sign": true, "unit": "degrees"    }, "name": "Timing advance #2"},
     {"id": "STONIC_TIMING_ADVANCE_3",    "path": "Engine", "fmt": {"bix": 48,  "len": 8, "max": 95.25, "min": -96, "mul": 0.75,           "sign": true, "unit": "degrees"    }, "name": "Timing advance #3"},
     {"id": "STONIC_TIMING_ADVANCE_4",    "path": "Engine", "fmt": {"bix": 56,  "len": 8, "max": 95.25, "min": -96, "mul": 0.75,           "sign": true, "unit": "degrees"    }, "name": "Timing advance #4"},
-    {"id": "STONIC_BAROMETRIC_PRESSURE", "path": "Engine", "fmt": {"bix": 312, "len": 8, "max": 127.5,                          "div": 2,               "unit": "kilopascal" }, "name": "Barometric pressure"}
+    {"id": "STONIC_BAROMETRIC_PRESSURE", "path": "Engine", "fmt": {"bix": 312, "len": 8, "max": 127.5,                          "div": 2,               "unit": "kilopascal" }, "name": "Barometric pressure", "suggestedMetric": "barometricPressure"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "14"}, "freq": 1,
   "signals": [
@@ -320,7 +320,7 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "cmd": {"22": "E001"}, "freq": 5, "dbgfilter": { "from": 2019 },
   "signals": [
-    {"id": "STONIC_EIT", "path": "Engine", "fmt": {"bix": 264, "len": 8, "max": 143, "min": -48, "mul": 3, "div": 4, "add": -48, "unit": "celsius" }, "name": "Intake air temperature"},
+    {"id": "STONIC_EIT", "path": "Engine", "fmt": {"bix": 264, "len": 8, "max": 143, "min": -48, "mul": 3, "div": 4, "add": -48, "unit": "celsius" }, "name": "Intake air temperature", "suggestedMetric": "intakeAirTemperature"},
     {"id": "STONIC_EOT", "path": "Engine", "fmt": {"bix": 272, "len": 8, "max": 143, "min": -48, "mul": 3, "div": 4, "add": -48, "unit": "celsius" }, "name": "Engine oil temperature", "suggestedMetric": "engineOilTemperature"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "cmd": {"22": "E002"}, "freq": 5, "dbgfilter": { "from": 2019 },
